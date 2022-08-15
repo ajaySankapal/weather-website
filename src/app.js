@@ -1,6 +1,8 @@
 const path = require("path");
 const express = require("../node_modules/express");
 const app = express();
+const port = process.env.PORT || 3000;
+
 const hbs = require("hbs");
 const forecast = require("./utils/forecast");
 
@@ -104,7 +106,9 @@ app.get("*", (req, res) => {
   //'*' to handle other than mentioned above. we can provide some different page
   //place it at the last
   res.render("404", {
-    errorMessage: "Page Not found",
+    errorMessage: "Page Not found ⚠️",
   });
 });
-app.listen(3000);
+app.listen(port, () => {
+  console.log("Server is up on port " + port);
+});
