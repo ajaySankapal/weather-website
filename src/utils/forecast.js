@@ -25,8 +25,9 @@ const forecast = (address, callback) => {
       const feelsLike = body.current.feelslike;
       const address = body.location.name;
       const location = `${body.location.name}, ${body.location.region}, ${body.location.country}`;
+      const humidity = body.current.humidity;
       callback(undefined, {
-        forecast: `${forecast}. It is currently ${temperature} degrees out. It feels like ${feelsLike} degrees`,
+        forecast: `${forecast}. It is currently ${temperature} degrees out. It feels like ${feelsLike} degrees. The humidity is ${humidity}%`,
         location,
         address,
       });
